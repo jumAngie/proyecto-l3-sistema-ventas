@@ -21,9 +21,9 @@ namespace Sistema.Datos
         private Conexion()
         {
             this.Base = "L3_Sistema3erP2024N";
-            this.Servidor = "DESKTOP-FF1LJUO";
-            this.Usuario = "sa";
-            this.Clave = "Mipollita0731";
+            this.Servidor = "DESKTOP-J3T0LDQ\\SQLEXPRESS";
+            this.Usuario = "acampos";
+            this.Clave = "acampos";
             this.Seguridad = true;
 
         }// fin de  private Conexion()

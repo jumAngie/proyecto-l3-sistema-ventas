@@ -41,7 +41,7 @@ namespace Sistema.Presentacion
         {
             try
             {
-                dgvListado.DataSource = NCategoria.Buscar(txtBuscar.Text);
+                dgvListado.DataSource = NPersona.Buscar(txtBuscar.Text);
                 lblTotal.Text = "Total Registros:" + Convert.ToString(dgvListado.Rows.Count);
             }
             catch (Exception ex)

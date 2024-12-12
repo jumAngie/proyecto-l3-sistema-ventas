@@ -130,5 +130,22 @@ namespace Sistema.Presentacion
             frmc.MdiParent = this;
             frmc.Show();
         }
+
+        private void colaboradoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.Name == "frmPersonas")
+                {
+                    frm.Activate();//traer si esta abierto
+                    return;
+                }
+
+            }
+            //Si no esta abierto ,Crear una nueva Instancia
+            frmPersonas frmc = new frmPersonas();
+            frmc.MdiParent = this;
+            frmc.Show();
+        }
     }
 }
