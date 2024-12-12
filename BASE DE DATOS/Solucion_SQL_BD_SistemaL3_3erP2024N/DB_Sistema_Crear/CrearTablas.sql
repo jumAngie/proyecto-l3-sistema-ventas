@@ -31,10 +31,11 @@ idpersona integer primary key identity,
 tipo_persona varchar(20) not null,
 nombre varchar(100) not null,
 Tipo_documento varchar(20) null,
-stock integer not null,
+num_documento  varchar(20),
 direccion varchar(70) null,
 telefono varchar(20) null, 
-email varchar(50) null
+email varchar(50) null,
+estado bit default 1,
 );
 go
 
