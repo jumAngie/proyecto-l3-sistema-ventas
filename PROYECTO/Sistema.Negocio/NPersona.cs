@@ -31,7 +31,7 @@ namespace Sistema.Negocio
         {
             DPersona Datos = new DPersona();
             String Existe = Datos.Existe(num_documento);
-            if (Existe.Equals("1"))
+            if (Existe.Equals("No se puede actualizar el registro"))
             {
                 return "Una persona con este DNI ya existe";
 

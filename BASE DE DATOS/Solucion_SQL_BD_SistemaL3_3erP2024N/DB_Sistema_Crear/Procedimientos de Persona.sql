@@ -32,21 +32,21 @@ Order by nombre asc
 go
 
 --Procedimiento Insertar
-create proc persona_insertar
+create or alter proc persona_insertar
 @tipo_persona		VARCHAR(100), 
 @nombre				VARCHAR(100), 
 @Tipo_documento		VARCHAR(20), 
 @num_documento		VARCHAR(20), 
 @direccion			VARCHAR(70), 
 @telefono			VARCHAR(20), 
-@email				VARCHAR(20)
+@email				VARCHAR(50)
 as
 INSERT INTO persona(tipo_persona, nombre, Tipo_documento, num_documento, direccion, telefono, email) 
 VALUES             (@tipo_persona, @nombre, @Tipo_documento, @num_documento, @direccion, @telefono, @email)
 go
 
 -- Procedimiento Actualizar
-create proc persona_actualizar
+create or alter proc persona_actualizar
 @idpersona			INT,
 @tipo_persona		VARCHAR(100), 
 @nombre				VARCHAR(100), 
@@ -54,7 +54,7 @@ create proc persona_actualizar
 @num_documento		VARCHAR(20), 
 @direccion			VARCHAR(70), 
 @telefono			VARCHAR(20), 
-@email				VARCHAR(20)
+@email				VARCHAR(50)
 as
 UPDATE persona 
 	   SET	nombre=@nombre, 
@@ -92,11 +92,11 @@ where idpersona=@idpersona
 go
 
 --Procedimiento YA Existe
-create proc persona_existe
+create or alter proc persona_existe
 @valor varchar(100),
 @existe bit output
 as
-if exists (select num_documento from persona where nombre = ltrim(rtrim(@valor)))
+if exists (select num_documento from persona where num_documento = ltrim(rtrim(@valor)))
 begin
 set @existe=1
 end

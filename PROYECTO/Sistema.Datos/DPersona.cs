@@ -184,12 +184,19 @@ namespace Sistema.Datos
                 Comando.Parameters.Add("@valor", SqlDbType.VarChar).Value = valor;
                 SqlParameter ParExiste = new SqlParameter();
                 ParExiste.ParameterName = "@existe";
-                ParExiste.SqlDbType = SqlDbType.Int;
+                ParExiste.SqlDbType = SqlDbType.Bit;
                 ParExiste.Direction = ParameterDirection.Output;
                 Comando.Parameters.Add(ParExiste);
-                SqlCon.Open();
-                respuesta = Comando.ExecuteNonQuery() == 1 ? "OK" : "No se puede actualizar el registro";
 
+                // Ejecutar comando
+                SqlCon.Open();
+                Comando.ExecuteNonQuery();
+
+                // Leer el valor del parámetro de salida
+                bool existe = Convert.ToBoolean(ParExiste.Value);
+
+                // Evaluar resultado
+                respuesta = existe ? "No se puede actualizar el registro" : "OK";
 
             }
             catch (Exception ex)

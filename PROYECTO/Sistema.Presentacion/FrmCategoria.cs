@@ -41,7 +41,7 @@ namespace Sistema.Presentacion
         {
             try
             {
-                dgvListado.DataSource = NPersona.Buscar(txtBuscar.Text);
+                dgvListado.DataSource = NCategoria.Buscar(txtBuscar.Text);
                 lblTotal.Text = "Total Registros:" + Convert.ToString(dgvListado.Rows.Count);
             }
             catch (Exception ex)
@@ -149,7 +149,7 @@ namespace Sistema.Presentacion
                         Resp = NCategoria.Eliminar(Codigo);
                         if (Resp.Equals("OK"))
                         {
-                            this.MensajeOK("Se elimino el registro: " +Convert.ToString(row.Cells[2].Value));
+                            this.MensajeOK("Se eliminó el registro: " +Convert.ToString(row.Cells[2].Value));
                             //this.Listar();
                         }
                         else
